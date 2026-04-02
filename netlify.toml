@@ -16,6 +16,7 @@
   from = "/"
   to = "/home-ird/"
   status = 200
+  force = true
 
 # Redirect www → apex
 [[redirects]]
