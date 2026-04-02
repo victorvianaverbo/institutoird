@@ -11,10 +11,16 @@
 [images]
   remote_images = ["https://.*"]
 
+# Redirect raiz → home-ird
+[[redirects]]
+  from = "/"
+  to = "/home-ird/"
+  status = 200
+
 # Redirect www → apex
 [[redirects]]
-  from = "https://www.example.com/*"
-  to = "https://example.com/:splat"
+  from = "https://www.institutoird.com/*"
+  to = "https://institutoird.com/:splat"
   status = 301
   force = true
 
