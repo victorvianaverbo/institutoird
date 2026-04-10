@@ -11,6 +11,19 @@
 [images]
   remote_images = ["https://.*"]
 
+# Subdominio ebook → pagina de vendas
+[[redirects]]
+  from = "https://oguiadefinitivo.institutoird.com/*"
+  to = "/pagina-vendas-ebook/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://oguiadefinitivo.institutoird.com"
+  to = "/pagina-vendas-ebook/"
+  status = 200
+  force = true
+
 # Redirect raiz → home-ird
 [[redirects]]
   from = "/"
