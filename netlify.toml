@@ -13,18 +13,14 @@
 
 # Subdominio ebook → pagina de vendas
 [[redirects]]
-  from = "https://oguiadefinitivo.institutoird.com/*"
+  from = "/*"
   to = "/pagina-vendas-ebook/:splat"
   status = 200
   force = true
+  [redirects.conditions]
+    Host = "oguiadefinitivo.institutoird.com"
 
-[[redirects]]
-  from = "https://oguiadefinitivo.institutoird.com"
-  to = "/pagina-vendas-ebook/"
-  status = 200
-  force = true
-
-# Redirect raiz → home-ird
+# Redirect raiz → home-ird (apenas dominio principal)
 [[redirects]]
   from = "/"
   to = "/home-ird/"
