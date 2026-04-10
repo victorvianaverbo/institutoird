@@ -6,26 +6,10 @@
   <title>O Guia Definitivo de Estudos para Carreiras Jurídicas — Do Edital à Posse</title>
   <meta name="description" content="198 páginas. 42 capítulos. O roteiro completo de estudos para carreiras jurídicas. Método fundamentado em neurociência para quem tem pouco tempo e precisa de direção.">
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1026349941870089');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1026349941870089&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel Code -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="dns-prefetch" href="//connect.facebook.net">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -201,7 +185,7 @@
   <section class="autora" id="autora">
     <div class="autora__inner">
       <div class="autora__image js-reveal">
-        <img src="larissa.webp" alt="Dra. Larissa Luiz Ribeiro" width="600" height="600" loading="lazy">
+        <img src="larissa.webp" alt="Dra. Larissa Luiz Ribeiro" width="600" height="600" loading="lazy" decoding="async">
       </div>
       <div class="autora__content">
         <h2 class="autora__title js-reveal">Escrito por quem já esteve exatamente onde você está.</h2>
@@ -436,7 +420,13 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+  <script>
+  /* Meta Pixel — load after user interaction or 8s */
+  function loadFBPixel(){if(window._fbLoaded)return;window._fbLoaded=1;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1026349941870089');fbq('track','PageView')}
+  ['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,loadFBPixel,{once:true,passive:true})});
+  setTimeout(loadFBPixel,8000);
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1026349941870089&ev=PageView&noscript=1"/></noscript>
 </body>
 </html>
-<!-- rebuild -->
