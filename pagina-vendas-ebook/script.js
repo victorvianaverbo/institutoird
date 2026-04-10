@@ -140,6 +140,9 @@ function initPopup() {
       if (email) params.set('email', email);
       if (telefone) params.set('phoneNumber', telefone);
 
+      /* Meta Pixel — Lead event */
+      if (typeof fbq === 'function') fbq('track', 'Lead');
+
       var finalUrl = baseUrl + '&' + params.toString();
       window.open(finalUrl, '_blank');
     });
