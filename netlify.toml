@@ -1,8 +1,8 @@
 [build]
-  publish = "."
+  publish = "pagina-vendas-ebook"
 
 [dev]
-  publish = "."
+  publish = "lp-aulao"
   port = 8888
   framework = "#static"
   autoLaunch = false
@@ -17,12 +17,6 @@
   to = "https://institutoird.com/:splat"
   status = 301
   force = true
-
-# Ebook continua na raiz (catch-all rewrite)
-[[redirects]]
-  from = "/*"
-  to = "/pagina-vendas-ebook/:splat"
-  status = 200
 
 # Headers de seguranca
 [[headers]]
