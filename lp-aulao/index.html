@@ -246,8 +246,7 @@
   <script>
   /* Meta Pixel — load after interaction or idle */
   function loadFBPixel(){if(window._fbLoaded)return;window._fbLoaded=1;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1026349941870089');fbq('track','PageView')}
-  ['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,loadFBPixel,{once:true,passive:true})});
-  if('requestIdleCallback' in window){requestIdleCallback(loadFBPixel)}else{setTimeout(loadFBPixel,20000)}
+  ['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,loadFBPixel,{once:true,passive:true})})
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1026349941870089&ev=PageView&noscript=1"/></noscript>
 </body>
