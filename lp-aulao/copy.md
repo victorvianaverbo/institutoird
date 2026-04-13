@@ -40,14 +40,14 @@
 
 ---
 
-## Secao: Quem vai conduzir este aulao
+## Secao: Plataforma IRD
 
-- Titulo: Dra. Larissa Ribeiro
+- Titulo: IRD — Instituto de Ensino Juridico
 
 - Conteudo:
-  Juiza de Direito. Estudou da maneira errada por 1 ano e meio — mae solteira, advogando de segunda a sexta, estudando a noite com o tempo que sobrava. Nao sabia da nota de corte.
+  O IRD reune professores que sao juizes, promotores e defensores em atividade. Profissionais que passaram nos concursos mais dificeis do pais e hoje ensinam o que realmente funciona — com didatica, estrutura e foco em quem tem pouco tempo.
 
-  Ate que parou, analisou cada erro e descobriu o metodo que realmente funciona. Foi aprovada. Hoje ensina concurseiros a estudar com eficiencia real e metodo comprovado.
+  Cada aula e construida para ir direto ao ponto: o que estudar, como estudar e em que ordem. Sem enrolacao, sem teoria pela teoria. Metodo aplicado por quem vive a pratica e sabe o que a banca cobra.
 
 ---
 

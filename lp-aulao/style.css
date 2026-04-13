@@ -538,6 +538,10 @@ strong { font-weight: 700; }
   z-index: 1;
   transition: transform .6s cubic-bezier(.16, 1, .3, 1);
 }
+.autora__image-wrap--landscape img {
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+}
 .autora__image-wrap:hover img { transform: scale(1.03); }
 
 .autora__frame {
@@ -547,6 +551,9 @@ strong { font-weight: 700; }
   border-radius: 6px 6px 80px 6px;
   opacity: .15;
   pointer-events: none;
+}
+.autora__frame--landscape {
+  border-radius: 6px;
 }
 
 .autora__content { padding-top: var(--space-lg); }
