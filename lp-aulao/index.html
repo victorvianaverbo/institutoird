@@ -8,6 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//connect.facebook.net">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -241,6 +242,13 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+  <script>
+  /* Meta Pixel — load after interaction or idle */
+  function loadFBPixel(){if(window._fbLoaded)return;window._fbLoaded=1;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1026349941870089');fbq('track','PageView')}
+  ['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,loadFBPixel,{once:true,passive:true})});
+  if('requestIdleCallback' in window){requestIdleCallback(loadFBPixel)}else{setTimeout(loadFBPixel,20000)}
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1026349941870089&ev=PageView&noscript=1"/></noscript>
 </body>
 </html>

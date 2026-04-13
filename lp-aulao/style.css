@@ -1128,8 +1128,15 @@ body.popup-open { overflow: hidden; }
     padding-top: calc(70px + var(--space-md));
     padding-bottom: calc(var(--space-md) + 40px);
   }
-  .hero__headline { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .hero__pre { font-size: clamp(1.1rem, 5vw, 1.4rem); }
+  .hero__headline { font-size: clamp(2rem, 8vw, 2.75rem); }
+  .hero__careers { font-size: clamp(1rem, 4.5vw, 1.3rem); margin-bottom: var(--space-md); }
+  .hero__author { font-size: clamp(.85rem, 3.5vw, 1rem); }
+  .hero__sub { font-size: clamp(.88rem, 3.5vw, 1rem); }
   .hero__angle { height: 35px; }
+  .hero__badge { font-size: .65rem; padding: .5em 1em; }
+
+  .btn-cta { width: 100%; text-align: center; padding: 1.1em 1.5em; font-size: .9rem; }
 
   .descobrir__grid { grid-template-columns: 1fr; }
   .descobrir__card:nth-child(1),
@@ -1137,18 +1144,35 @@ body.popup-open { overflow: hidden; }
   .descobrir__card:nth-child(3),
   .descobrir__card:nth-child(4) { grid-column: auto; }
 
-  .autora__image-wrap { max-width: 280px; }
+  .autora__image-wrap { max-width: 100%; }
+  .autora__image-wrap--landscape { max-width: 100%; }
   .autora__image-wrap img { border-radius: 6px 6px 60px 6px; }
-  .autora__title { font-size: clamp(1.75rem, 5vw, 2.25rem); }
+  .autora__image-wrap--landscape img { border-radius: 6px; }
+  .autora__title { font-size: clamp(1.5rem, 5vw, 2rem); }
 
   .paraquem { clip-path: polygon(0 35px, 100% 0, 100% 100%, 0 100%); padding-top: calc(var(--space-2xl) + 35px); }
   .paraquem__title { font-size: clamp(1.5rem, 6vw, 2rem); }
   .paraquem__item { grid-template-columns: 1fr; gap: 6px; padding: 20px 16px; margin: 0 -16px; }
+  .paraquem__num { font-size: .7rem; }
 
-  .ctafinal__headline { font-size: clamp(1.6rem, 6vw, 2rem); }
+  .ctafinal__headline { font-size: clamp(1.5rem, 5.5vw, 1.85rem); }
+  .ctafinal__text { font-size: clamp(.9rem, 3.5vw, 1rem); }
   .ctafinal__gradient { height: 80px; }
 
   .faq__title { font-size: clamp(1.5rem, 5vw, 2rem); }
-  .faq__question { padding: 20px 0; }
-  .faq__answer p { padding-bottom: 20px; }
+  .faq__question { padding: 20px 0; font-size: clamp(.9rem, 3.5vw, 1rem); }
+  .faq__answer p { padding-bottom: 20px; font-size: clamp(.85rem, 3.2vw, .95rem); }
+
+  .popup { padding: 16px; }
+  .popup__card { padding: clamp(1.5rem, 5vw, 2rem); border-radius: 6px; }
+  .popup__title { font-size: 1.3rem; }
+  .popup__field input { font-size: 16px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
