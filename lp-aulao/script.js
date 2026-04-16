@@ -131,12 +131,11 @@ if (popupForm) {
     try {
       await saveToSupabase({ nome, email, whatsapp, source: 'lp-aulao' });
 
-      /* Envia lead para webhook Luvia (fire-and-forget) */
-      fetch('https://webhooks.tryluvia.com/api/webhooks/flow/9fa4d93254233b5e8e99d0a3', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, email, whatsapp })
-      }).catch(() => {});
+      /* Envia lead para webhook Luvia */
+      navigator.sendBeacon(
+        'https://webhooks.tryluvia.com/api/webhooks/flow/9fa4d93254233b5e8e99d0a3',
+        new Blob([JSON.stringify({ nome, email, whatsapp })], { type: 'text/plain' })
+      );
 
       /* Show success */
       popupForm.style.display = 'none';

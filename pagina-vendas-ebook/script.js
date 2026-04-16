@@ -140,12 +140,11 @@ function initPopup() {
       if (email) params.set('email', email);
       if (telefone) params.set('phoneNumber', telefone);
 
-      /* Envia lead para webhook Luvia (fire-and-forget) */
-      fetch('https://webhooks.tryluvia.com/api/webhooks/flow/064ebff23a1a546a830961ab', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, email, telefone })
-      }).catch(function() {});
+      /* Envia lead para webhook Luvia */
+      navigator.sendBeacon(
+        'https://webhooks.tryluvia.com/api/webhooks/flow/064ebff23a1a546a830961ab',
+        new Blob([JSON.stringify({ nome, email, telefone })], { type: 'text/plain' })
+      );
 
       /* Meta Pixel — Lead event */
       if (typeof fbq === 'function') fbq('track', 'Lead');
