@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Do Zero a Aprovacao — Ebook Gratuito | InstitutoIRD</title>
+  <meta name="description" content="Baixe gratis o guia pratico que mostra como comecar a estudar para Magistratura, Ministerio Publico e Defensoria com direcao, metodo e constancia.">
+
+  <meta property="og:title" content="Do Zero a Aprovacao — Ebook Gratuito | InstitutoIRD">
+  <meta property="og:description" content="O guia pratico que mostra como comecar a estudar para Magistratura, MP e Defensoria — com direcao, metodo e constancia.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css"></noscript>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js" defer></script>
+  <!-- Supabase carregado sob demanda no submit do form -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ========== HERO — Dobra 1 ========== -->
+  <section class="hero" id="formulario">
+    <div class="hero__inner">
+
+      <div class="hero__content">
+        <span class="hero__label">Ebook gratuito</span>
+        <h1 class="hero__headline">Do Zero a Aprovacao</h1>
+        <p class="hero__sub">O guia pratico que mostra como comecar a estudar para Magistratura, Ministerio Publico e Defensoria &mdash; com direcao, metodo e constancia.</p>
+        <p class="hero__desc">Em 12 paginas, voce vai entender os erros que travam sua preparacao e os fundamentos que separam quem avanca de quem fica girando em circulos. Sem enrolacao. Sem teoria vazia. Direto ao ponto.</p>
+
+        <ul class="hero__list">
+          <li>Por que comecar sem diagnostico compromete meses de estudo</li>
+          <li>Como transformar pouco tempo em progresso real com estrutura</li>
+          <li>O habito que sustenta uma preparacao &mdash; e nao e motivacao</li>
+          <li>Por que trocar de material e o erro mais caro que voce pode cometer</li>
+        </ul>
+      </div>
+
+      <div class="hero__form-wrap">
+        <div class="form-card">
+          <p class="form-card__title">Baixe o ebook gratuito</p>
+          <form id="leadForm" class="form" novalidate>
+            <div class="form__group">
+              <label class="form__label" for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" class="form__input" placeholder="Seu nome completo" required autocomplete="name">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="email">E-mail</label>
+              <input type="email" id="email" name="email" class="form__input" placeholder="seu@email.com" required autocomplete="email">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="telefone">WhatsApp</label>
+              <input type="tel" id="telefone" name="telefone" class="form__input" required autocomplete="tel">
+            </div>
+            <div class="form__feedback" id="formFeedback"></div>
+            <button type="submit" class="btn-cta" id="submitBtn">Quero meu ebook gratuito</button>
+          </form>
+          <p class="form-card__note">100% gratuito. Seus dados estao seguros.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== IRD — Dobra 2 ========== -->
+  <section class="ird" id="ird">
+    <div class="ird__glow" aria-hidden="true"></div>
+    <div class="ird__inner">
+      <span class="ird__label js-reveal">Ensino Juridico</span>
+      <h2 class="ird__headline js-reveal" style="--delay:.05s">IRD &mdash; Instituto de Ensino Juridico</h2>
+      <p class="ird__text js-reveal" style="--delay:.1s">O IRD reune professores que sao juizes, promotores e defensores em atividade. Profissionais que passaram nos concursos mais dificeis do pais e hoje ensinam o que realmente funciona &mdash; com didatica, estrutura e foco em quem tem pouco tempo.</p>
+      <p class="ird__text js-reveal" style="--delay:.15s">Nossa plataforma e construida sobre estudo ativo: cronograma inteligente, flashcards, revisoes espacadas e simulados no padrao da banca. Sem videoaula. Sem conteudo passivo. Cada minuto do seu estudo e gasto fazendo o que a ciencia da aprendizagem comprova que funciona.</p>
+      <a href="#formulario" class="btn-cta btn-cta--outline js-reveal" style="--delay:.2s">Quero meu ebook gratuito</a>
+    </div>
+  </section>
+
+  <!-- ========== RODAPE ========== -->
+  <footer class="rodape">
+    <div class="rodape__inner">
+      <p>InstitutoIRD &mdash; Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

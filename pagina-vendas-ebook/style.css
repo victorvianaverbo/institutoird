@@ -47,9 +47,10 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
   color: var(--navy);
   background: var(--bg-cream);
-  line-height: 1.6;
+  line-height: 1.75;
   overflow-x: hidden;
 }
 
@@ -185,8 +186,8 @@ ul { list-style: none; }
 }
 
 .hero__sub-text {
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-  line-height: 1.6;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.7;
   color: var(--navy-soft);
   max-width: 600px;
   margin-bottom: var(--space-xs);
@@ -195,7 +196,7 @@ ul { list-style: none; }
 .hero__sub-text strong { color: var(--navy); }
 
 .hero__sub-detail {
-  font-size: clamp(.875rem, 1.1vw, 1rem);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
   color: var(--navy-muted);
   margin-bottom: var(--space-lg);
   max-width: 600px;
@@ -272,15 +273,15 @@ ul { list-style: none; }
 }
 
 .espelho__content {
-  font-size: clamp(1rem, 1.3vw, 1.125rem);
-  line-height: 1.8;
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  line-height: 1.85;
   color: var(--navy-soft);
 }
 
 .espelho__content p { margin-bottom: var(--space-md); }
 
 .espelho__lead {
-  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  font-size: clamp(1.15rem, 1.5vw, 1.3rem);
   color: var(--navy);
 }
 
@@ -358,8 +359,8 @@ ul { list-style: none; }
 }
 
 .problema__text p {
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
-  line-height: 1.8;
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  line-height: 1.85;
   color: var(--white-soft);
   margin-bottom: var(--space-md);
 }
@@ -453,8 +454,8 @@ ul { list-style: none; }
 }
 
 .solucao__content p {
-  font-size: clamp(1rem, 1.3vw, 1.125rem);
-  line-height: 1.8;
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  line-height: 1.85;
   color: var(--navy-soft);
   margin-bottom: var(--space-md);
 }
@@ -564,11 +565,11 @@ ul { list-style: none; }
 }
 
 .aprender__card-list li {
-  font-size: clamp(.875rem, 1vw, .95rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  line-height: 1.7;
   color: var(--navy-soft);
   padding-left: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -630,8 +631,8 @@ ul { list-style: none; }
 }
 
 .autora__content p {
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
-  line-height: 1.8;
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  line-height: 1.85;
   color: var(--navy-soft);
   margin-bottom: var(--space-md);
 }
@@ -728,8 +729,8 @@ ul { list-style: none; }
 }
 
 .paraquem__item p {
-  font-size: clamp(.95rem, 1.1vw, 1.05rem);
-  line-height: 1.6;
+  font-size: clamp(1.1rem, 1.3vw, 1.2rem);
+  line-height: 1.7;
   color: var(--white-soft);
 }
 
@@ -816,8 +817,8 @@ ul { list-style: none; }
 }
 
 .oferta__spotlight p {
-  font-size: clamp(.95rem, 1.1vw, 1.05rem);
-  line-height: 1.7;
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  line-height: 1.75;
   color: var(--navy-soft);
   margin-bottom: var(--space-sm);
 }
@@ -932,7 +933,7 @@ ul { list-style: none; }
   padding: 24px 0;
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: clamp(.95rem, 1.1vw, 1.05rem);
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
   font-weight: 500;
   color: var(--navy);
   transition: color .2s ease;
@@ -984,8 +985,8 @@ ul { list-style: none; }
 }
 
 .faq__answer p {
-  font-size: clamp(.875rem, 1vw, .95rem);
-  line-height: 1.7;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.75;
   color: var(--navy-soft);
 }
 
@@ -1057,10 +1058,10 @@ ul { list-style: none; }
 }
 
 .ctafinal__text {
-  font-size: clamp(.95rem, 1.1vw, 1.05rem);
-  line-height: 1.8;
+  font-size: clamp(1.1rem, 1.3vw, 1.2rem);
+  line-height: 1.85;
   color: var(--white-soft);
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto var(--space-lg);
 }
 

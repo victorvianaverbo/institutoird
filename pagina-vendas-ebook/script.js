@@ -140,6 +140,13 @@ function initPopup() {
       if (email) params.set('email', email);
       if (telefone) params.set('phoneNumber', telefone);
 
+      /* Envia lead para webhook Luvia (fire-and-forget) */
+      fetch('https://webhooks.tryluvia.com/api/webhooks/flow/c046d3d7f262bc9d47399d2b', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, email, telefone })
+      }).catch(function() {});
+
       /* Meta Pixel — Lead event */
       if (typeof fbq === 'function') fbq('track', 'Lead');
 

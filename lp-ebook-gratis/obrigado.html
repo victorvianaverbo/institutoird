@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ebook Enviado — Do Zero a Aprovacao | InstitutoIRD</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section class="obrigado">
+    <div class="obrigado__inner">
+      <span class="obrigado__icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="2"/>
+          <path d="M14 24l7 7 13-13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <h1 class="obrigado__title">Pronto! Seu ebook esta aqui.</h1>
+      <p class="obrigado__text">Clique no botao abaixo para baixar o guia <strong>"Do Zero a Aprovacao"</strong>. Tambem enviamos uma copia para o seu e-mail.</p>
+      <a href="Do-Zero-a-Aprovacao-IRD.pdf" download class="btn-cta" id="downloadBtn">Baixar ebook agora</a>
+      <p class="obrigado__redirect" id="redirectMsg"></p>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape__inner">
+      <p>InstitutoIRD &mdash; Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', function () {
+      var msg = document.getElementById('redirectMsg');
+      var seconds = 3;
+      msg.textContent = 'Redirecionando em ' + seconds + 's...';
+      var timer = setInterval(function () {
+        seconds--;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          window.location.href = 'http://aulao.institutoird.com';
+        } else {
+          msg.textContent = 'Redirecionando em ' + seconds + 's...';
+        }
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
