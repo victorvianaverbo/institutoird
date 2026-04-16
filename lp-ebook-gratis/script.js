@@ -159,11 +159,12 @@ function initForm() {
 
       if (error) throw error;
 
-      /* Envia lead para webhook Luvia (fire-and-forget) */
+      /* Envia lead para webhook Luvia (keepalive garante envio antes do redirect) */
       fetch('https://webhooks.tryluvia.com/api/webhooks/flow/c046d3d7f262bc9d47399d2b', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, email, telefone })
+        body: JSON.stringify({ nome, email, telefone }),
+        keepalive: true
       }).catch(() => {});
 
       /* Redireciona para pagina de obrigado com parametros */
