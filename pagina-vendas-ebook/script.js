@@ -141,7 +141,7 @@ function initPopup() {
       if (telefone) params.set('phoneNumber', telefone);
 
       /* Envia lead para webhook Luvia (fire-and-forget) */
-      fetch('https://webhooks.tryluvia.com/api/webhooks/flow/c046d3d7f262bc9d47399d2b', {
+      fetch('https://webhooks.tryluvia.com/api/webhooks/flow/064ebff23a1a546a830961ab', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, email, telefone })
