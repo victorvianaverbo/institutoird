@@ -7,8 +7,8 @@
    CONFIG — Supabase
    Substituir pelos valores do seu projeto
    ========================================== */
-const SUPABASE_URL = 'https://woebteyuqzndvchruxhw.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndvZWJ0ZXl1cXpuZHZjaHJ1eGh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3OTAyMDYsImV4cCI6MjA4NzM2NjIwNn0.N2KgxsYE-NEnM6dz9cjGRKY1WVXoLBW1qpoNTo0oCcs';
+const SUPABASE_URL = 'https://tqahdpasetyiwlggzhit.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxYWhkcGFzZXR5aXdsZ2d6aGl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2OTI4MzIsImV4cCI6MjA5MjI2ODgzMn0.g4X_a0cubfvtTG15j638i6_dYYdQwo9v-QS4thyXc24';
 
 /* URL da pagina de obrigado (redirect apos captura) */
 const OBRIGADO_URL = 'obrigado.html';

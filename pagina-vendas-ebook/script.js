@@ -1,4 +1,11 @@
 /* ========================================
+   Supabase
+   ======================================== */
+var SUPABASE_URL = 'https://tqahdpasetyiwlggzhit.supabase.co';
+var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxYWhkcGFzZXR5aXdsZ2d6aGl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2OTI4MzIsImV4cCI6MjA5MjI2ODgzMn0.g4X_a0cubfvtTG15j638i6_dYYdQwo9v-QS4thyXc24';
+
+
+/* ========================================
    Scroll Reveal — IntersectionObserver
    ======================================== */
 function initScrollReveal() {
@@ -140,10 +147,23 @@ function initPopup() {
       if (email) params.set('email', email);
       if (telefone) params.set('phoneNumber', telefone);
 
+      /* Salva lead no Supabase (fire-and-forget) */
+      fetch(SUPABASE_URL + '/rest/v1/ebook_pago_leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ nome: nome, email: email, telefone: telefone, source: 'pagina-vendas-ebook' }),
+        keepalive: true
+      }).catch(function() {});
+
       /* Envia lead para webhook Luvia */
       navigator.sendBeacon(
         'https://webhooks.tryluvia.com/api/webhooks/flow/064ebff23a1a546a830961ab',
-        new Blob([JSON.stringify({ nome, email, telefone })], { type: 'text/plain' })
+        new Blob([JSON.stringify({ nome: nome, email: email, telefone: telefone })], { type: 'text/plain' })
       );
 
       /* Meta Pixel — Lead event */
