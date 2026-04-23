@@ -1,4 +1,4 @@
-# Copy - Landing Page Ebook "Do Zero a Aprovacao"
+# Copy - Landing Page Ebook "Como Estudar Para Concursos Jurídicos"
 
 ## Contexto
 - Tipo de pagina: captura (lead magnet)
@@ -12,7 +12,7 @@
 ## Hero (Dobra 1)
 
 - Label: Ebook gratuito
-- Headline: Do Zero a Aprovacao
+- Headline: Como Estudar Para Concursos Jurídicos
 - Subheadline: O guia pratico que mostra como comecar a estudar para Magistratura, Ministerio Publico e Defensoria — com direcao, metodo e constancia.
 - Texto de apoio: Em 12 paginas, voce vai entender os erros que travam sua preparacao e os fundamentos que separam quem avanca de quem fica girando em circulos. Sem enrolacao. Sem teoria vazia. Direto ao ponto.
 

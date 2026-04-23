@@ -1,5 +1,5 @@
 /**
- * LP Ebook Gratis — Do Zero a Aprovacao
+ * LP Ebook Gratis — Como Estudar Para Concursos Jurídicos
  * Supabase integration + form validation + scroll reveal
  */
 
