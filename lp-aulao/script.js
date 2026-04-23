@@ -129,13 +129,14 @@ if (popupForm) {
     popupSubmit.textContent = 'Enviando...';
 
     try {
-      await saveToSupabase({ nome, email, whatsapp, source: 'lp-aulao' });
+      await saveToSupabase({ nome, email, telefone: whatsapp, source: 'lp-aulao' });
 
-      /* Envia lead para webhook Luvia */
+      /* Envio para webhook Luvia pausado
       navigator.sendBeacon(
         'https://webhooks.tryluvia.com/api/webhooks/flow/9fa4d93254233b5e8e99d0a3',
         new Blob([JSON.stringify({ nome, email, whatsapp })], { type: 'text/plain' })
       );
+      */
 
       /* Show success */
       popupForm.style.display = 'none';
