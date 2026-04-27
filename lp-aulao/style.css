@@ -299,14 +299,6 @@ strong { font-weight: 700; }
   50% { box-shadow: 0 0 0 6px rgba(212, 168, 66, 0); }
 }
 
-.hero__logo {
-  display: block;
-  width: clamp(200px, 28vw, 280px);
-  height: auto;
-  margin: var(--space-md) auto var(--space-sm);
-  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, .35));
-}
-
 .hero__pre {
   font-family: var(--font-body);
   font-size: clamp(.85rem, 1.4vw, 1.05rem);
