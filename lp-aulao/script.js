@@ -72,98 +72,57 @@ if (progressBar) {
 
 
 /* ========================================
-   Popup
+   Forms inline (hero, meio, final)
    ======================================== */
-const popup = document.getElementById('popup');
-const popupForm = document.getElementById('popupForm');
-const popupSubmit = document.getElementById('popupSubmit');
+const successHTML = `
+  <div class="aulao-form__success is-visible">
+    <div class="aulao-form__success-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h4>Inscrição confirmada!</h4>
+    <p>Você receberá o link de acesso no seu e-mail e WhatsApp antes do aulão.</p>
+  </div>
+`;
 
-function openPopup() {
-  popup.classList.add('is-open');
-  popup.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('popup-open');
-  setTimeout(() => {
-    const firstInput = popup.querySelector('input');
-    if (firstInput) firstInput.focus();
-  }, 350);
-}
-
-function closePopup() {
-  popup.classList.remove('is-open');
-  popup.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('popup-open');
-}
-
-/* Open triggers */
-document.querySelectorAll('[data-open-popup]').forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    openPopup();
-  });
-});
-
-/* Close triggers */
-document.querySelectorAll('[data-close-popup]').forEach((el) => {
-  el.addEventListener('click', closePopup);
-});
-
-/* Close on Escape */
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && popup.classList.contains('is-open')) {
-    closePopup();
-  }
-});
-
-/* Form submission */
-if (popupForm) {
-  popupForm.addEventListener('submit', async (e) => {
+document.querySelectorAll('[data-aulao-form]').forEach((form) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const nome = popupForm.querySelector('[name="nome"]').value.trim();
-    const email = popupForm.querySelector('[name="email"]').value.trim();
-    const whatsapp = popupForm.querySelector('[name="whatsapp"]').value.trim();
+    const submitBtn = form.querySelector('.aulao-form__cta');
+    const nome = form.querySelector('[name="nome"]').value.trim();
+    const email = form.querySelector('[name="email"]').value.trim();
+    const whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
 
     if (!nome || !email || !whatsapp) return;
 
-    popupSubmit.disabled = true;
-    popupSubmit.textContent = 'Enviando...';
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
 
     try {
-      await saveToSupabase({ nome, email, telefone: whatsapp, source: 'lp-aulao' });
+      await saveToSupabase({
+        nome,
+        email,
+        telefone: whatsapp,
+        source: form.dataset.source || 'lp-aulao'
+      });
 
-      /* Envio para webhook Luvia pausado
-      navigator.sendBeacon(
-        'https://webhooks.tryluvia.com/api/webhooks/flow/9fa4d93254233b5e8e99d0a3',
-        new Blob([JSON.stringify({ nome, email, whatsapp })], { type: 'text/plain' })
-      );
-      */
-
-      /* Show success */
-      popupForm.style.display = 'none';
-      const noteEl = popup.querySelector('.popup__note');
-      if (noteEl) noteEl.style.display = 'none';
-
-      const successHTML = `
-        <div class="popup__success is-visible">
-          <div class="popup__success-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-          </div>
-          <h4>Inscrição confirmada!</h4>
-          <p>Você receberá o link de acesso no seu e-mail e WhatsApp antes do aulão.</p>
-        </div>
-      `;
-      popup.querySelector('.popup__body').insertAdjacentHTML('beforeend', successHTML);
-
+      const card = form.closest('.aulao-form-card');
+      if (card) {
+        card.outerHTML = successHTML;
+      } else {
+        form.outerHTML = successHTML;
+      }
     } catch (err) {
       console.error('Erro ao salvar lead:', err);
-      popupSubmit.disabled = false;
-      popupSubmit.textContent = 'Quero garantir minha vaga';
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
       alert('Erro ao processar inscrição. Tente novamente.');
     }
   });
-}
+});
 
 
 /* ========================================
