@@ -24,6 +24,32 @@ async function saveToSupabase(data) {
 
 
 /* ========================================
+   UTM capture (URL + sessionStorage)
+   ======================================== */
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+function captureUTMs() {
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = {};
+  UTM_KEYS.forEach((key) => {
+    const v = params.get(key);
+    if (v) fromUrl[key] = v.slice(0, 200);
+  });
+  if (Object.keys(fromUrl).length) {
+    try { sessionStorage.setItem('aulao_utms', JSON.stringify(fromUrl)); } catch (e) {}
+    return fromUrl;
+  }
+  try {
+    const stored = sessionStorage.getItem('aulao_utms');
+    if (stored) return JSON.parse(stored);
+  } catch (e) {}
+  return {};
+}
+
+const initialUTMs = captureUTMs();
+
+
+/* ========================================
    Scroll Reveal
    ======================================== */
 const reveals = document.querySelectorAll('.js-reveal');
@@ -102,12 +128,23 @@ document.querySelectorAll('[data-aulao-form]').forEach((form) => {
     submitBtn.textContent = 'Enviando...';
 
     try {
+      const source = form.dataset.source || 'lp-aulao';
       await saveToSupabase({
         nome,
         email,
         telefone: whatsapp,
-        source: form.dataset.source || 'lp-aulao'
+        source,
+        ...initialUTMs
       });
+
+      /* Meta Pixel — Lead event */
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', { content_name: source, content_category: 'aulao' });
+      }
+      /* GTM dataLayer — generate_lead */
+      if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push({ event: 'generate_lead', source, ...initialUTMs });
+      }
 
       const card = form.closest('.aulao-form-card');
       if (card) {

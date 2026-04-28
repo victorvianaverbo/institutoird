@@ -13,6 +13,29 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 /* URL da pagina de obrigado (redirect apos captura) */
 const OBRIGADO_URL = 'obrigado.html';
 
+/* UTM keys capturadas da URL e persistidas em sessionStorage */
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+function captureUTMs() {
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = {};
+  UTM_KEYS.forEach((key) => {
+    const v = params.get(key);
+    if (v) fromUrl[key] = v.slice(0, 200);
+  });
+  if (Object.keys(fromUrl).length) {
+    try { sessionStorage.setItem('ebook_utms', JSON.stringify(fromUrl)); } catch (e) {}
+    return fromUrl;
+  }
+  try {
+    const stored = sessionStorage.getItem('ebook_utms');
+    if (stored) return JSON.parse(stored);
+  } catch (e) {}
+  return {};
+}
+
+const initialUTMs = captureUTMs();
+
 
 /* ==========================================
    INIT
@@ -154,10 +177,20 @@ function initForm() {
           nome: nome,
           email: email,
           telefone: telefone,
-          origem: 'lp-ebook-gratis'
+          origem: 'lp-ebook-gratis',
+          ...initialUTMs
         });
 
       if (error) throw error;
+
+      /* Meta Pixel — Lead event */
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', { content_name: 'lp-ebook-gratis', content_category: 'ebook' });
+      }
+      /* GTM dataLayer — generate_lead */
+      if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push({ event: 'generate_lead', source: 'lp-ebook-gratis', ...initialUTMs });
+      }
 
       /* Envia lead para webhook Luvia */
       navigator.sendBeacon(

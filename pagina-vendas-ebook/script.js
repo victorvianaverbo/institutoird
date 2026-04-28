@@ -4,6 +4,27 @@
 var SUPABASE_URL = 'https://tqahdpasetyiwlggzhit.supabase.co';
 var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxYWhkcGFzZXR5aXdsZ2d6aGl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2OTI4MzIsImV4cCI6MjA5MjI2ODgzMn0.g4X_a0cubfvtTG15j638i6_dYYdQwo9v-QS4thyXc24';
 
+/* UTM capture (URL + sessionStorage) */
+var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+function captureUTMs() {
+  var params = new URLSearchParams(window.location.search);
+  var fromUrl = {};
+  UTM_KEYS.forEach(function(key) {
+    var v = params.get(key);
+    if (v) fromUrl[key] = v.slice(0, 200);
+  });
+  if (Object.keys(fromUrl).length) {
+    try { sessionStorage.setItem('vendas_ebook_utms', JSON.stringify(fromUrl)); } catch (e) {}
+    return fromUrl;
+  }
+  try {
+    var stored = sessionStorage.getItem('vendas_ebook_utms');
+    if (stored) return JSON.parse(stored);
+  } catch (e) {}
+  return {};
+}
+var initialUTMs = captureUTMs();
+
 
 /* ========================================
    Scroll Reveal — IntersectionObserver
@@ -148,6 +169,10 @@ function initPopup() {
       if (telefone) params.set('phoneNumber', telefone);
 
       /* Salva lead no Supabase (fire-and-forget) */
+      var supabasePayload = Object.assign(
+        { nome: nome, email: email, telefone: telefone, source: 'pagina-vendas-ebook' },
+        initialUTMs
+      );
       fetch(SUPABASE_URL + '/rest/v1/ebook_pago_leads', {
         method: 'POST',
         headers: {
@@ -156,7 +181,7 @@ function initPopup() {
           'Authorization': 'Bearer ' + SUPABASE_KEY,
           'Prefer': 'return=minimal'
         },
-        body: JSON.stringify({ nome: nome, email: email, telefone: telefone, source: 'pagina-vendas-ebook' }),
+        body: JSON.stringify(supabasePayload),
         keepalive: true
       }).catch(function() {});
 
@@ -167,7 +192,13 @@ function initPopup() {
       );
 
       /* Meta Pixel — Lead event */
-      if (typeof fbq === 'function') fbq('track', 'Lead');
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', { content_name: 'pagina-vendas-ebook', content_category: 'ebook-pago' });
+      }
+      /* GTM dataLayer — generate_lead */
+      if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push(Object.assign({ event: 'generate_lead', source: 'pagina-vendas-ebook' }, initialUTMs));
+      }
 
       var finalUrl = baseUrl + '&' + params.toString();
       window.open(finalUrl, '_blank');
