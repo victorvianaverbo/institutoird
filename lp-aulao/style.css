@@ -271,17 +271,21 @@ strong { font-weight: 700; }
 }
 
 .hero__badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  font-size: .72rem;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  font-size: .8rem;
   font-weight: 500;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--gold-brand);
   background: rgba(212, 168, 66, .06);
-  border: 1px solid rgba(212, 168, 66, .12);
-  padding: .5em 1.2em;
+  border: 1px solid rgba(212, 168, 66, .25);
+  padding: .75em 1.2em;
   border-radius: 100px;
 }
 
@@ -310,7 +314,7 @@ strong { font-weight: 700; }
 }
 .hero__headline-pre {
   display: inline-block;
-  font-size: .55em;
+  font-size: .68em;
   letter-spacing: .04em;
   color: var(--white-soft);
   text-transform: uppercase;
@@ -356,8 +360,9 @@ strong { font-weight: 700; }
   background: linear-gradient(135deg, rgba(212, 168, 66, .16), rgba(184, 146, 45, .08));
   border: 1px solid rgba(212, 168, 66, .35);
   border-radius: 10px;
-  padding: .75rem 1.1rem;
-  max-width: 460px;
+  padding: .9rem 1.25rem;
+  width: 100%;
+  max-width: 420px;
   margin: var(--space-sm) auto 0;
   text-align: left;
   box-shadow: 0 6px 20px rgba(212, 168, 66, .14);
@@ -909,10 +914,10 @@ strong { font-weight: 700; }
 .aulao-form-card {
   position: relative;
   background: var(--bg-cream);
-  border-radius: 8px;
+  border-radius: 10px;
   width: 100%;
   max-width: 420px;
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 1.5rem 1.35rem;
   margin: 0 auto;
   box-shadow:
     0 18px 48px rgba(0, 0, 0, .25),
@@ -926,42 +931,47 @@ strong { font-weight: 700; }
     0 6px 20px rgba(0, 0, 0, .25);
 }
 
-.aulao-form__field { margin-bottom: 10px; }
+.aulao-form__field { margin-bottom: 12px; }
 
 .aulao-form__field label {
   display: block;
-  font-size: .68rem;
-  font-weight: 500;
-  letter-spacing: .06em;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--navy-muted);
-  margin-bottom: 3px;
-  transition: color .2s ease, transform .2s ease;
+  color: var(--navy);
+  margin-bottom: 5px;
+  transition: color .2s ease;
 }
 .aulao-form__field:has(input:focus) label {
-  color: var(--gold);
-  transform: translateY(-2px);
+  color: var(--gold-dark);
 }
 
 .aulao-form__field input {
   display: block;
   width: 100%;
   font-family: var(--font-body);
-  font-size: .9rem;
+  font-size: 1rem;
+  font-weight: 500;
   color: var(--navy);
   background: var(--bg-white);
-  border: 1px solid var(--border-warm);
-  border-radius: 3px;
-  padding: .65em .9em;
-  transition: border-color .2s ease, box-shadow .2s ease;
+  border: 1.5px solid var(--border-warm);
+  border-radius: 6px;
+  padding: .75em 1em;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
 }
 .aulao-form__field input::placeholder {
   color: var(--navy-muted);
-  opacity: .4;
+  font-weight: 400;
+  opacity: .65;
+}
+.aulao-form__field input:hover {
+  border-color: var(--navy-muted);
 }
 .aulao-form__field input:focus {
   outline: none;
   border-color: var(--gold);
+  background: var(--bg-white);
   box-shadow: 0 0 0 3px var(--gold-light);
 }
 
@@ -969,16 +979,16 @@ strong { font-weight: 700; }
   display: block;
   width: 100%;
   font-family: var(--font-body);
-  font-size: .92rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: .03em;
+  letter-spacing: .05em;
   color: var(--bg-cream);
   background: var(--gold);
   border: none;
-  padding: .9em;
-  border-radius: 3px;
+  padding: 1em;
+  border-radius: 6px;
   cursor: pointer;
-  margin-top: .75rem;
+  margin-top: 1rem;
   text-transform: uppercase;
   transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
 }
@@ -999,9 +1009,11 @@ strong { font-weight: 700; }
 
 .aulao-form__note {
   text-align: center;
-  font-size: .7rem;
+  font-size: .82rem;
+  font-weight: 500;
   color: var(--navy-muted);
-  margin-top: 8px;
+  margin-top: 12px;
+  letter-spacing: .01em;
 }
 
 /* Success state */
@@ -1105,13 +1117,13 @@ strong { font-weight: 700; }
   .hero__bonus-label { font-size: .62rem; }
   .hero__bonus { padding: .65rem .9rem; column-gap: 10px; }
   .hero__angle { height: 28px; }
-  .hero__badge { font-size: .6rem; padding: .4em .9em; letter-spacing: .1em; }
-  .aulao-form-card { padding: .85rem 1rem; }
-  .aulao-form__field { margin-bottom: 6px; }
-  .aulao-form__field label { font-size: .62rem; margin-bottom: 2px; letter-spacing: .04em; }
-  .aulao-form__field input { padding: .45em .8em; font-size: 16px; }
-  .aulao-form__cta { padding: .7em; font-size: .82rem; margin-top: .45rem; letter-spacing: .04em; }
-  .aulao-form__note { font-size: .62rem; margin-top: 5px; }
+  .hero__badge { font-size: .68rem; padding: .65em 1em; letter-spacing: .12em; }
+  .aulao-form-card { padding: 1.15rem 1.15rem 1rem; }
+  .aulao-form__field { margin-bottom: 9px; }
+  .aulao-form__field label { font-size: .68rem; margin-bottom: 4px; letter-spacing: .06em; }
+  .aulao-form__field input { padding: .65em .9em; font-size: 16px; border-radius: 5px; }
+  .aulao-form__cta { padding: .85em; font-size: .9rem; margin-top: .75rem; letter-spacing: .05em; border-radius: 5px; }
+  .aulao-form__note { font-size: .75rem; margin-top: 9px; }
 
   .aulao-form__success { padding: var(--space-md) 1rem; }
   .aulao-form__success-icon { width: 48px; height: 48px; }
@@ -1163,13 +1175,15 @@ strong { font-weight: 700; }
 /* Smartphones bem pequenos (iPhone SE, ~360px) */
 @media (max-width: 380px) {
   .hero__headline { font-size: clamp(1.7rem, 8vw, 2rem); }
-  .hero__bonus { padding: .55rem .75rem; column-gap: 8px; }
+  .hero__bonus { padding: .7rem .9rem; column-gap: 10px; }
   .hero__bonus-icon { font-size: 1.3rem; }
-  .hero__bonus-text { font-size: .78rem; line-height: 1.35; }
-  .hero__bonus-label { font-size: .58rem; letter-spacing: .12em; }
-  .hero__badge { font-size: .55rem; padding: .35em .8em; }
-  .aulao-form-card { padding: .75rem .9rem; }
-  .aulao-form__cta { font-size: .78rem; }
+  .hero__bonus-text { font-size: .8rem; line-height: 1.35; }
+  .hero__bonus-label { font-size: .6rem; letter-spacing: .12em; }
+  .hero__badge { font-size: .62rem; padding: .55em .9em; letter-spacing: .1em; }
+  .aulao-form-card { padding: 1rem 1rem .9rem; }
+  .aulao-form__field input { padding: .6em .8em; }
+  .aulao-form__cta { font-size: .85rem; padding: .75em; }
+  .aulao-form__note { font-size: .72rem; }
   .ctafinal__headline { font-size: clamp(1.3rem, 5vw, 1.6rem); }
 }
 
